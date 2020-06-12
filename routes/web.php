@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::get('get-me','TelegramController@getMe');
 Route::get('set-hook', 'TelegramController@setWebHook');
 Route::post(env('TELEGRAM_BOT_TOKEN') . '/webhook', 'TelegramController@handleRequest');
+Route::get('t',function(){
+    return 'hi';
+});
