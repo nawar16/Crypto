@@ -20,11 +20,13 @@ class TelegramController extends Controller
     }
     /**
      * creating a URL where Telegram will send a request once a new command is entered in our bot
+     * https://api.telegram.org/bot.env('TELEGRAM_BOT_TOKEN')/getWebhookInfo
      */
     public function setWebHook(){
         $url = 'https://cryptoeco.herokuapp.com/'.env('TELEGRAM_BOT_TOKEN').'/webhook';
         $response = $this->telegram->setWebHook(['url' => $url]);
-        return $response == true ? redirect()->back : dd($response);
+        return $response == true ?  view('home'): dd($response);
+        //redirect()->back() : dd($response);
     }
     /**
      * except from csrf verification
@@ -61,7 +63,7 @@ class TelegramController extends Controller
     }
     public function showMenu($info = null)
     {
-        $message = '';
+        $message = array();
         if ($info) {
             $message .= $info . chr(10);
         }
@@ -70,6 +72,7 @@ class TelegramController extends Controller
         $message .= '/getTicker' . chr(10);
         $message .= '/getCurrencyTicker' . chr(10);
  
+        //$content = array('chat_id' => $chat_id, 'text' => 'Hello');
         $this->sendMessage($message);
     }
     //getting data from CoinMarketCap and sending it to the user after formatting
@@ -157,6 +160,11 @@ class TelegramController extends Controller
         if ($parse_html) $data['parse_mode'] = 'HTML';
  
         $this->telegram->sendMessage($data);
+    }
+    public function updatedActivity()
+    {
+        $activity = Telegram::getUpdates();
+        dd($activity);
     }
 }
     
