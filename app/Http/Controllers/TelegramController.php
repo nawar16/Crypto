@@ -72,8 +72,8 @@ class TelegramController extends Controller
         $message .= '/getTicker' . chr(10);
         $message .= '/getCurrencyTicker' . chr(10);
  
-        //$content = array('chat_id' => $chat_id, 'text' => 'Hello');
-        $this->sendMessage($message);
+        $content = array('chat_id' => $chat_id, 'text' => 'Hello');
+        $this->sendMessage($content);
     }
     //getting data from CoinMarketCap and sending it to the user after formatting
     public function showGlobal()
