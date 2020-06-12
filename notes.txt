@@ -1,0 +1,3 @@
+https://cryptoeco.herokuapp.com/ | https://git.heroku.com/cryptoeco.git
+APP_KEY = base64:GVn+PCapnxyUc4NuClnCUO46M/IF6KSuCAnBPsJD4/0=
+https://cryptoeco.herokuapp.com/

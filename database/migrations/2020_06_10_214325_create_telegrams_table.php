@@ -15,6 +15,8 @@ class CreateTelegramsTable extends Migration
     {
         Schema::create('telegrams', function (Blueprint $table) {
             $table->id();
+            $table->string('username');
+            $table->string('command');
             $table->timestamps();
         });
     }
