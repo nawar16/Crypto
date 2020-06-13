@@ -39,7 +39,7 @@ class TelegramController extends Controller
         $this->text = $request['message']['text'];
  
         $updates = $this->telegram->getWebhookUpdates();
-        dd($updates);
+        //dd($updates);
         //calling the appropriate method based on the user command
         switch ($this->text) {
             case '/start':
