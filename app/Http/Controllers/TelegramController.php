@@ -33,10 +33,13 @@ class TelegramController extends Controller
      * request sent by telegram webhook
      */
     public function handleRequest(Request $request){
+
         $this->chat_id = $request['message']['chat']['id'];
         $this->username = $request['message']['from']['username'];
         $this->text = $request['message']['text'];
  
+        $updates = $this->telegram->getWebhookUpdates();
+        dd($updates);
         //calling the appropriate method based on the user command
         switch ($this->text) {
             case '/start':
