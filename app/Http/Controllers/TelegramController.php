@@ -10,6 +10,7 @@ class TelegramController extends Controller
 {
     protected $telegram;
 
+    protected $chat_id;
     public function __construct(){
         Telegram::setTimeout(30);
         $this->telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
@@ -165,6 +166,14 @@ class TelegramController extends Controller
     {
         $activity = Telegram::getUpdates();
         dd($activity);
+    }
+    public function getUpdates(){
+        //if ($text == '/git') {
+            //$reply = 'Check me on GitHub: https://github.com/Eleirbag89/TelegramBotPHP';
+            // Build the reply array
+            $content = ['chat_id' => $this->chat_id, 'text' => 'HI'];
+            $this->telegram->sendMessage($content);
+        //}
     }
 }
     

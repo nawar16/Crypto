@@ -17,7 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/a', function () {
+    return 'a';
+});
+
 Route::get('get-me','TelegramController@getMe');
 Route::get('set-hook', 'TelegramController@setWebHook');
 Route::post(env('TELEGRAM_BOT_TOKEN') . '/webhook', 'TelegramController@handleRequest');
 Route::get('/updated-activity', 'TelegramController@updatedActivity');
+Route::post('/getUpdates', 'TelegramController@getUpdates');
