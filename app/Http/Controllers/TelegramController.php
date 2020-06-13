@@ -12,7 +12,7 @@ class TelegramController extends Controller
 
     protected $chat_id;
     public function __construct(){
-        Telegram::setTimeout(3000);
+        //Telegram::setTimeout(3000);
         $this->telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
     }
     public function getMe(){
