@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Telegram\Bot\Laravel\TelegramServiceProvider::class,
+        KriosMane\CoinMarketCap\Providers\CoinMarketCapServiceProvider::class,
 
     ],
 
@@ -228,7 +229,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Telegram' => Telegram\Bot\Laravel\Facades\Telegram::class,
-
+        'CoinMarketCap' => KriosMane\CoinMarketCap\Facades\CoinMarketCap::class 
     ],
 
 ];

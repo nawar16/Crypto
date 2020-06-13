@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eda58976aeb4feabab37b6b73590c93b",
+    "content-hash": "7b784546895024a8cd2ce29191cb5fd1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -809,6 +809,50 @@
                 "telegram sdk"
             ],
             "time": "2020-04-23T15:38:38+00:00"
+        },
+        {
+            "name": "kriosmane/coinmarketcap-api",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kriosmane/coinmarketcap-api.git",
+                "reference": "d3a04998ce8d33f9b40558fa58c06c11a5013250"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kriosmane/coinmarketcap-api/zipball/d3a04998ce8d33f9b40558fa58c06c11a5013250",
+                "reference": "d3a04998ce8d33f9b40558fa58c06c11a5013250",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.3",
+                "php": "^7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "KriosMane\\CoinMarketCap\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Krios Mane",
+                    "email": "krios.mane@gmail.com"
+                }
+            ],
+            "description": "Laravel package for interacting with CoinMarketCap Api",
+            "homepage": "https://github.com/kriosmane/coinmarketcap-api",
+            "keywords": [
+                "api",
+                "coin marketcap",
+                "laravel",
+                "pro"
+            ],
+            "time": "2019-01-21T13:59:20+00:00"
         },
         {
             "name": "laravel/framework",

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Telegram\Bot\Api as Api;
 use \Telegram as Telegram;
+use \CoinMarketCap as CoinMarketCap;
 
 class TelegramController extends Controller
 {
@@ -66,7 +67,7 @@ class TelegramController extends Controller
     }
     public function showMenu($info = null)
     {
-        $message = array();
+        $message = '';
         if ($info) {
             $message .= $info . chr(10);
         }
@@ -81,7 +82,8 @@ class TelegramController extends Controller
     //getting data from CoinMarketCap and sending it to the user after formatting
     public function showGlobal()
     {
-        $data = CoinMarketCap::getGlobalData();
+        $data = CoinMarketCap::all_cryptos();
+        //$data = CoinMarketCap::getGlobalData();
         // returns cryptocurrency global data.
         $this->sendMessage($this->formatArray($data), true);
     }
