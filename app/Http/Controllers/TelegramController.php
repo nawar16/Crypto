@@ -11,6 +11,14 @@ use Exception;
 use Illuminate\Http\Request;
 use Telegram\Bot\Api;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
+use Kevinrob\GuzzleCache\CacheMiddleware;
+use Kevinrob\GuzzleCache\Storage\Psr6CacheStorage;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+use Kevinrob\GuzzleCache\Strategy\PrivateCacheStrategy;
+use Kevinrob\GuzzleCache\Strategy\GreedyCacheStrategy;
+
 
 class TelegramController extends Controller
 {
@@ -30,7 +38,7 @@ class TelegramController extends Controller
     }
     public function setWebHook()
     {
-        $url = 'https://limitless-sea-65547.herokuapp.com/' . env('TELEGRAM_BOT_TOKEN') . '/webhook';
+        $url = 'https://cryptoeco.herokuapp.com/public/webhook/update.php';
         $response = $this->telegram->setWebhook(['url' => $url]);
         return $response == true ? redirect()->back() : dd($response);
     }
@@ -41,7 +49,7 @@ class TelegramController extends Controller
         $this->text = $request['message']['text'];
         switch ($this->text) {
             case '/start':
-            case '/menu':
+            case '/menu': //DONE
                 $this->showMenu();
                 break;
             case '/getGlobal':
@@ -50,7 +58,7 @@ class TelegramController extends Controller
             case '/getTicker':
                 $this->getTicker();
                 break;
-            case '/getCurrencyTicker':
+            case '/getCurrencyTicker': //DONE
                 $this->getCurrencyTicker();
                 break;
             default:

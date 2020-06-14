@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -48,8 +49,26 @@ class Handler extends ExceptionHandler
      *
      * @throws \Throwable
      */
-    public function render($request, Throwable $exception)
+    public function render($request, Throwable $e)
     {
-        return parent::render($request, $exception);
+        //return parent::render($request, $exception);
+        $trace = $e->getTraceAsString();
+        if ($e instanceof ModelNotFoundException
+            && mb_strpos($trace, 'app\Http\Controllers\WelcomeController')
+        ) {
+            return response()->json('Exception ' . $e->getMessage());
+        } elseif ($e instanceof ModelNotFoundException) {
+            return "General model not found";
+        } elseif ($e instanceof \Illuminate\Auth\AuthenticationException) {
+            return "AuthenticationException";
+        } elseif ($e instanceof \Illuminate\Validation\ValidationException) {
+            return "ValidationException";
+        } elseif ($e instanceof \Symfony\Component\HttpKernel\Exception\HttpException) {
+            return "HttpException";
+        } elseif ($e instanceof \Illuminate\Auth\Access\AuthorizationException) {
+            return "AuthorizationException";
+        }   
+    
+        return parent::render($request, $e);
     }
 }

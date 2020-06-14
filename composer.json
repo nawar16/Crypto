@@ -9,14 +9,15 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
-        "dzarezenko/coinmarketcap-api": "dev-master",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.5",
         "irazasyed/telegram-bot-sdk": "dev-develop",
+        "kevinrob/guzzle-cache-middleware": "^3.3",
         "kriosmane/coinmarketcap-api": "^1.0",
         "laravel/framework": "^7.0",
-        "laravel/tinker": "^2.0"
+        "laravel/tinker": "^2.0",
+        "symfony/cache": "^5.1"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
