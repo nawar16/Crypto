@@ -38,7 +38,7 @@ class TelegramController extends Controller
     }
     public function setWebHook()
     {
-        $url = 'https://cryptoeco.herokuapp.com/public/webhook/update.php';
+        $url = 'https://cryptoeco.herokuapp.com/public/update.php';
         $response = $this->telegram->setWebhook(['url' => $url]);
         return $response == true ? redirect()->back() : dd($response);
     }
